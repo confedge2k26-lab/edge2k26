@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>EDGE 2026 – Emerging Digital Intelligence and Generative Engineering</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        /* Basic reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #0b1220;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Layout */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid #1f2937;
+            backdrop-filter: blur(10px);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.25rem;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a {
+            padding-bottom: 0.2rem;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a.active,
+        .nav-links a:hover {
+            border-color: #38bdf8;
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 0.9rem;
+            border: 1px solid #1f2937;
+            border-radius: 999px;
+            padding: 0.3rem 0.7rem;
+            background: #020617;
+            color: #e5e7eb;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 2rem 0 3rem;
+        }
+
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid #111827;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+        }
+
+        /* Hero */
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 3vw + 1rem, 2.6rem);
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-tag {
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 1.5rem;
+            color: #38bdf8;
+            margin-bottom: 0.35rem;
+        }
+
+        .hero-text {
+            font-size: 0.95rem;
+            color: #d1d5db;
+        }
+
+        .hero-meta {
+            margin: 1.2rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            font-size: 0.85rem;
+        }
+
+        .pill {
+            border-radius: 999px;
+            border: 1px solid #1f2937;
+            padding: 0.3rem 0.75rem;
+            background: #020617;
+        }
+
+        .pill-accent {
+            border-color: #38bdf8;
+            background: rgba(56, 189, 248, 0.08);
+        }
+
+        .pill-soft {
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            border-radius: 999px;
+            padding: 0.55rem 1.25rem;
+            border: 1px solid #1f2937;
+            font-size: 0.9rem;
+            cursor: pointer;
+            background: #020617;
+            color: #e5e7eb;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to right, #0ea5e9, #22c55e);
+            border-color: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: #38bdf8;
+        }
+
+        .deadline-note {
+            font-size: 0.82rem;
+            color: #9ca3af;
+        }
+
+        .deadline-note span {
+            color: #38bdf8;
+        }
+
+        /* Hero side panel */
+
+        .panel {
+            border-radius: 1rem;
+            border: 1px solid #1f2937;
+            padding: 1.25rem;
+            background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 55%), #020617;
+        }
+
+        .panel-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #9ca3af;
+            margin-bottom: 0.4rem;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.8rem;
+        }
+
+        .count-box {
+            flex: 1 1 70px;
+            border-radius: 0.75rem;
+            border: 1px solid #111827;
+            background: #020617;
+            padding: 0.6rem 0.5rem;
+            text-align: center;
+        }
+
+        .count-number {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .count-label {
+            font-size: 0.7rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+        }
+
+        .dates-list {
+            font-size: 0.8rem;
+        }
+
+        .dates-list div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.25rem;
+        }
+
+        .dates-label {
+            color: #9ca3af;
+        }
+
+        .dates-value {
+            font-weight: 500;
+        }
+
+        .dates-highlight {
+            color: #38bdf8;
+        }
+
+        /* About / Tracks / Dates / Submission */
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            border-radius: 0.9rem;
+            border: 1px solid #1f2937;
+            background: #020617;
+            padding: 1rem 1.1rem;
+            font-size: 0.9rem;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .card p {
+            font-size: 0.86rem;
+            color: #d1d5db;
+        }
+
+        ul.list {
+            list-style: none;
+            font-size: 0.86rem;
+        }
+
+        ul.list li {
+            margin-bottom: 0.3rem;
+            display: flex;
+            gap: 0.35rem;
+        }
+
+        ul.list li::before {
+            content: "▸";
+            font-size: 0.7rem;
+            color: #38bdf8;
+            margin-top: 0.2rem;
+        }
+
+        .dates-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.86rem;
+        }
+
+        .dates-table th,
+        .dates-table td {
+            border-bottom: 1px solid #111827;
+            padding: 0.5rem 0.25rem;
+        }
+
+        .dates-table th {
+            text-align: left;
+            font-size: 0.78rem;
+            color: #9ca3af;
+        }
+
+        .status-pill {
+            font-size: 0.72rem;
+            border-radius: 999px;
+            border: 1px solid #1f2937;
+            padding: 0.15rem 0.6rem;
+        }
+
+        .status-open {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+        .status-upcoming {
+            border-color: #facc15;
+            color: #facc15;
+        }
+
+        /* Simple contact / form */
+
+        form {
+            margin-top: 0.75rem;
+            display: grid;
+            gap: 0.6rem;
+            font-size: 0.86rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            color: #9ca3af;
+            margin-bottom: 0.15rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            border-radius: 0.5rem;
+            border: 1px solid #1f2937;
+            background: #020617;
+            color: #e5e7eb;
+            padding: 0.45rem 0.55rem;
+            font-size: 0.86rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        .form-row {
+            display: grid;
+            gap: 0.6rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .form-note {
+            font-size: 0.78rem;
+            color: #9ca3af;
+        }
+
+        .form-message {
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+
+        .form-message.success {
+            color: #4ade80;
+        }
+
+        .form-message.error {
+            color: #f97373;
+        }
+
+        footer {
+            border-top: 1px solid #111827;
+            padding: 1rem 0 1.5rem;
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-align: center;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 1.2rem;
+            bottom: 1.4rem;
+            padding: 0.4rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid #1f2937;
+            background: #020617;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        .back-to-top.show {
+            display: inline-block;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 840px) {
+            .hero {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .panel {
+                order: -1;
+            }
+
+            .grid-2 {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .form-row {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                background: #020617;
+                padding: 0.5rem 1.25rem 0.8rem;
+                border-bottom: 1px solid #111827;
+            }
+
+            .nav-links.show {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .nav-toggle {
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="nav">
+            <div class="logo">
+                EDGE <span>2026</span>
+            </div>
+
+            <button class="nav-toggle" id="navToggle">Menu</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#tracks" class="nav-link">Tracks</a></li>
+                <li><a href="#dates" class="nav-link">Dates</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+
+    </div>
+</header>
+
+<main class="container">
+    <!-- Hero -->
+    <section id="home">
+        <div class="hero">
+            <div>
+                <div class="hero-tag">International Confernce on Emerging Digital Intelligence and Generative Engineering</div>
+                <h1 class="hero-title">EDGE 2026</h1>
+                <p class="hero-text">
+                    An international forum on digital intelligence, generative AI, and the engineering of intelligent
+                    systems for real-world applications, hosted by VIT Bhopal University.
+                </p>
+
+                <div class="hero-meta">
+                    <span class="pill pill-accent">25–27 September 2026 (Tentative)</span>
+                    <span class="pill pill-soft">Organised by VIT Bhopal University</span>
+                    <span class="pill pill-soft">Proceedings Proposal: Springer Nature</span>
+                    <span class="pill">Hybrid Mode</span>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#tracks" class="btn btn-primary">Call for Papers</a>
+                    <a href="#dates" class="btn btn-outline">Important Dates</a>
+                </div>
+
+                <p class="deadline-note">
+                    Paper submission deadline: <span>30 April 2026</span> (23:59 IST), for consideration in
+                    the proposed Springer Nature proceedings.
+                </p>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">Countdown to Conference</div>
+                <div class="countdown">
+                    <div class="count-box">
+                        <div class="count-number" id="days">–</div>
+                        <div class="count-label">Days</div>
+                    </div>
+                    <div class="count-box">
+                        <div class="count-number" id="hours">–</div>
+                        <div class="count-label">Hours</div>
+                    </div>
+                    <div class="count-box">
+                        <div class="count-number" id="minutes">–</div>
+                        <div class="count-label">Minutes</div>
+                    </div>
+                    <div class="count-box">
+                        <div class="count-number" id="seconds">–</div>
+                        <div class="count-label">Seconds</div>
+                    </div>
+                </div>
+
+                <div class="panel-title" style="margin-top:0.6rem;">Key Dates (Tentative)</div>
+                <div class="dates-list">
+                    <div>
+                        <span class="dates-label">Paper submission:</span>
+                        <span class="dates-value dates-highlight">30 April 2026</span>
+                    </div>
+                    <div>
+                        <span class="dates-label">Acceptance notification:</span>
+                        <span class="dates-value">30 June 2026</span>
+                    </div>
+                    <div>
+                        <span class="dates-label">Camera-ready due:</span>
+                        <span class="dates-value">31 July 2026</span>
+                    </div>
+                    <div>
+                        <span class="dates-label">Conference dates:</span>
+                        <span class="dates-value">25–27 September 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <h2>About EDGE</h2>
+        <p class="section-subtitle">
+            EDGE 2026 is conducted by VIT Bhopal University and is proposed to be published as
+            peer-reviewed proceedings with Springer Nature.
+        </p>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3>Theme</h3>
+                <p>
+                    The event addresses models, methods, and engineered systems enabling intelligent,
+                    generative, and context-aware behaviour in digital environments. It connects foundational
+                    research in artificial intelligence and machine learning with deployed solutions across
+                    healthcare, finance, manufacturing, governance, cybersecurity, education, and related domains.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Objectives</h3>
+                <ul class="list">
+                    <li>To present recent advances in digital and generative intelligence.</li>
+                    <li>To provide a platform coordinated by VIT Bhopal University for global collaboration.</li>
+                    <li>To facilitate high-quality, peer-reviewed publications with Springer Nature.</li>
+                    <li>To encourage responsible and explainable AI practices in research and deployment.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracks -->
+    <section id="tracks">
+        <h2>Tracks and Topics</h2>
+        <p class="section-subtitle">
+            Submissions are invited, but not limited to, the indicative tracks outlined below.
+        </p>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3>Track 1: Digital Intelligence Foundations</h3>
+                <ul class="list">
+                    <li>Machine learning and deep learning algorithms.</li>
+                    <li>Hybrid and neural–symbolic intelligence.</li>
+                    <li>Optimization, robustness, and uncertainty modelling.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Track 2: Generative AI and Language Technologies</h3>
+                <ul class="list">
+                    <li>Large language models and transformer-based architectures.</li>
+                    <li>Multimodal, multilingual, and low-resource AI systems.</li>
+                    <li>Conversational AI, dialogue systems, and speech technologies.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Track 3: Engineering Intelligent Systems</h3>
+                <ul class="list">
+                    <li>Edge AI, distributed and federated learning.</li>
+                    <li>MLOps, deployment pipelines, and benchmarking.</li>
+                    <li>Data engineering and synthetic data generation.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Track 4: Applications and Responsible AI</h3>
+                <ul class="list">
+                    <li>Sectoral use cases in health, finance, governance, and education.</li>
+                    <li>Cybersecurity, anomaly detection, and threat intelligence.</li>
+                    <li>Ethics, transparency, governance, and societal impact studies.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dates -->
+    <section id="dates">
+        <h2>Important Dates</h2>
+        <p class="section-subtitle">
+            All dates are tentative and indicated in Indian Standard Time (IST).
+        </p>
+
+        <div class="card">
+            <table class="dates-table">
+                <thead>
+                    <tr>
+                        <th>Milestone</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Paper submission deadline</td>
+                        <td>30 April 2026</td>
+                        <td><span class="status-pill status-open">Open</span></td>
+                    </tr>
+                    <tr>
+                        <td>Notification of acceptance</td>
+                        <td>30 June 2026</td>
+                        <td><span class="status-pill status-upcoming">Upcoming</span></td>
+                    </tr>
+                    <tr>
+                        <td>Camera-ready and registration</td>
+                        <td>31 July 2026</td>
+                        <td><span class="status-pill status-upcoming">Upcoming</span></td>
+                    </tr>
+                    <tr>
+                        <td>EDGE 2026 conference dates</td>
+                        <td>25–27 September 2026</td>
+                        <td><span class="status-pill status-upcoming">Upcoming</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Contact / simple form -->
+    <section id="contact">
+        <h2>Contact and Expression of Interest</h2>
+        <p class="section-subtitle">
+            The form below is for demonstration purposes and does not submit data to a live server.
+        </p>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3>Organising Committee</h3>
+                <ul class="list">
+                    <li>General Chair: Prof. [Name], School of Computing Science &amp; Engineering, VIT Bhopal University.</li>
+                    <li>Programme Chair: Dr. [Name], Department of Computer Science, VIT Bhopal University.</li>
+                    <li>Publication Chair: Dr. [Name], VIT Bhopal University.</li>
+                </ul>
+                <p style="margin-top:0.5rem; font-size:0.86rem;">
+                    General queries may be addressed to:
+                    <br />
+                    <strong>Email:</strong> edge2026@vitbhopal.ac.in
+                    <br />
+                    Proceedings proposal under consideration with <strong>Springer Nature</strong>.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Expression of Interest</h3>
+                <p class="form-note">
+                    Interested authors and participants may fill in their details to receive further updates.
+                </p>
+                <form id="interestForm">
+                    <div class="form-row">
+                        <div>
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required />
+                        </div>
+                        <div>
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="affiliation">Affiliation</label>
+                        <input type="text" id="affiliation" name="affiliation" />
+                    </div>
+                    <div>
+                        <label for="track">Preferred Track</label>
+                        <select id="track" name="track">
+                            <option value="">Select (optional)</option>
+                            <option value="t1">Digital Intelligence Foundations</option>
+                            <option value="t2">Generative AI and Language Technologies</option>
+                            <option value="t3">Engineering Intelligent Systems</option>
+                            <option value="t4">Applications and Responsible AI</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message">Short Message / Query</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit (Demo)</button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<button class="back-to-top" id="backToTop">↑ Top</button>
+
+<footer>
+    © EDGE 2026 – Emerging Digital Intelligence and Generative Engineering.  
+    Organised by VIT Bhopal University. Proceedings proposal under consideration with Springer Nature.
+</footer>
+
+<script>
+    // Mobile navigation toggle
+    (function () {
+        var navToggle = document.getElementById("navToggle");
+        var navLinks = document.getElementById("navLinks");
+
+        navToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("show");
+        });
+    })();
+
+    // Active nav link on scroll
+    (function () {
+        var sections = document.querySelectorAll("main section");
+        var navLinks = document.querySelectorAll(".nav-link");
+
+        function onScroll() {
+            var fromTop = window.scrollY + 120;
+
+            sections.forEach(function (section) {
+                if (section.offsetTop <= fromTop &&
+                    section.offsetTop + section.offsetHeight > fromTop) {
+                    var id = section.getAttribute("id");
+                    navLinks.forEach(function (link) {
+                        if (link.getAttribute("href") === "#" + id) {
+                            link.classList.add("active");
+                        } else {
+                            link.classList.remove("active");
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener("scroll", onScroll);
+    })();
+
+    // Back-to-top button
+    (function () {
+        var btn = document.getElementById("backToTop");
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 300) {
+                btn.classList.add("show");
+            } else {
+                btn.classList.remove("show");
+            }
+        });
+        btn.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    })();
+
+    // Countdown timer (to 25 September 2026, 09:00 IST approx.)
+    (function () {
+        var target = new Date("2026-09-25T09:00:00");
+        var dEl = document.getElementById("days");
+        var hEl = document.getElementById("hours");
+        var mEl = document.getElementById("minutes");
+        var sEl = document.getElementById("seconds");
+
+        function updateCountdown() {
+            var now = new Date();
+            var diff = target.getTime() - now.getTime();
+
+            if (diff <= 0) {
+                dEl.textContent = "0";
+                hEl.textContent = "00";
+                mEl.textContent = "00";
+                sEl.textContent = "00";
+                return;
+            }
+
+            var seconds = Math.floor(diff / 1000);
+            var days = Math.floor(seconds / (3600 * 24));
+            seconds -= days * 3600 * 24;
+            var hours = Math.floor(seconds / 3600);
+            seconds -= hours * 3600;
+            var minutes = Math.floor(seconds / 60);
+            seconds -= minutes * 60;
+
+            dEl.textContent = String(days);
+            hEl.textContent = String(hours).padStart(2, "0");
+            mEl.textContent = String(minutes).padStart(2, "0");
+            sEl.textContent = String(seconds).padStart(2, "0");
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    })();
+
+    // Simple demo form handling
+    (function () {
+        var form = document.getElementById("interestForm");
+        var msgBox = document.getElementById("formMessage");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            var name = form.name.value.trim();
+            var email = form.email.value.trim();
+
+            if (!name || !email) {
+                msgBox.textContent = "Kindly provide both name and email.";
+                msgBox.className = "form-message error";
+                return;
+            }
+
+            msgBox.textContent =
+                "Thank you, " + name + ". Your interest has been recorded (demo only).";
+            msgBox.className = "form-message success";
+            form.reset();
+        });
+    })();
+</script>
+
+</body>
+</html>
