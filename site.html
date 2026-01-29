@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>EDGE 2026 | Emerging Digital Intelligence and Generative Engineering</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ================= BASE ================= */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    margin:0;
+    font-family:Segoe UI, Arial, sans-serif;
+    background:linear-gradient(180deg,#f6fbff,#ffffff);
+    color:#1f2937;
+    line-height:1.65;
+}
+
+/* ================= NAVIGATION ================= */
+.nav-wrapper{
+    position:sticky;
+    top:0;
+    background:linear-gradient(90deg,#003b8f,#0057b8,#0077cc);
+    z-index:100;
+}
+
+.nav-container{
+    max-width:1100px;
+    margin:auto;
+    padding:10px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
+
+.nav-title{
+    color:white;
+    font-weight:600;
+    font-size:16px;
+}
+
+.nav-menu{
+    list-style:none;
+    display:flex;
+    gap:16px;
+    margin:0;
+    padding:0;
+}
+
+.nav-menu li a{
+    color:white;
+    font-size:14px;
+    font-weight:500;
+    text-decoration:none;
+}
+
+/* Mobile Toggle */
+.nav-toggle{
+    display:none;
+    background:white;
+    border:none;
+    padding:6px 10px;
+    font-size:16px;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+/* Mobile Menu */
+@media(max-width:900px){
+    .nav-toggle{display:block}
+    .nav-menu{
+        display:none;
+        width:100%;
+        flex-direction:column;
+        margin-top:10px;
+        background:#003b8f;
+        border-radius:6px;
+    }
+    .nav-menu.show{display:flex}
+    .nav-menu li{padding:8px 12px}
+}
+
+/* ================= SECTIONS ================= */
+section{
+    max-width:1100px;
+    margin:auto;
+    padding:60px 20px;
+    border-bottom:1px solid #e5e7eb;
+}
+
+h2{
+    color:#003b8f;
+    margin-top:0;
+}
+
+.subtitle{
+    font-size:14px;
+    color:#475569;
+    margin-bottom:20px;
+}
+
+/* ================= CARDS ================= */
+.card{
+    background:white;
+    border-radius:12px;
+    padding:26px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.06);
+}
+
+.grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:26px;
+}
+
+ul{
+    list-style:none;
+    padding-left:0;
+}
+/*
+ul li::before{
+    content:"➤ ";
+    color:#0077cc;
+    font-weight:600;
+}
+*/
+/* ================= BUTTON ================= */
+.btn{
+    display:inline-block;
+    margin-top:12px;
+    padding:12px 24px;
+    background:#0057b8;
+    color:white;
+    border-radius:6px;
+    font-size:14px;
+    text-decoration:none;
+}
+
+/* ================= COUNTDOWN ================= */
+#countdown{
+    font-size:18px;
+    font-weight:600;
+    color:#0057b8;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+    .grid-2{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<div class="nav-wrapper">
+    <div class="nav-container">
+        
+        <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="#about">About</a></li>
+            <li><a href="#committee">Committees</a></li>
+            <li><a href="#scope">Scope</a></li>
+            <li><a href="#cfp">Call for Papers</a></li>
+            <li><a href="#dates">Important Dates</a></li>
+            <li><a href="#reviewer">Call for Reviewer</a></li>
+            <li><a href="#submission">Submission</a></li>
+            <li><a href="#registration">Registration</a></li>
+            <li><a href="#venue">Venue</a></li>
+            <li><a href="#help">Help</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+<h2>About EDGE 2026</h2>
+<p class="subtitle">International Conference · 21–22 October 2026</p>
+<div class="card">
+<p align='justify'>
+Emerging Digital Intelligence and Generative Engineering (EDGE 2026) focuses on the transformative evolution of artificial intelligence, computational intelligence, and generative systems that are now shaping the future of automation, decision-making, knowledge representation, and digital ecosystems.
+
+The conference aims to establish an intellectual platform that brings together academic researchers, industry innovators, policymakers, and practitioners to explore theoretical advancements and practical implementations of emerging intelligent technologies.
+
+The theme reflects a growing global movement toward next-generation intelligent solutions that are capable of understanding, generating, reasoning, adapting, and interacting with humans and digital ecosystems in more meaningful ways. As digital systems become increasingly autonomous, generative, and interconnected, the conference positions itself as a catalyst for responsible innovation and interdisciplinary research.
+
+
+</p>
+<p id="countdown"></p>
+</div>
+</section>
+
+<!-- ================= COMMITTEE ================= -->
+<section id="committee">
+<h2>Committees</h2>
+<div class="grid-2">
+<div class="card">
+<h3>Organising Committee</h3>
+<ul>
+<li>Chief Patron<br>
+<b>Dr. G. Viswanathan<br></b>
+Founder & Chancellor, VIT
+</li>
+<br>
+<li>Patrons<br>
+<b>Mr. Sankar Viswanathan</b><br>
+Vice President, VIT<br><br>
+
+<b>Ms. Kadhambari S. Viswanathan</b><br>
+Assistant Vice President, VIT<br><br>
+
+<b>Mrs. Ramani Balasundaram<br></b>
+Trustee, VIT<br><br>
+
+<b>Prof. G S Tomar<br></b>
+Chair, IEEE MP Section<br><br>
+</li>
+<li>Co-Patrons<br>
+<b>Dr. T. B. Sridharan</b><br>
+Vice-Chancellor, VIT Bhopal University<br><br>
+
+<b>Mr. K K Nair</b><br>
+Registrar, VIT Bhopal University
+<br><br>
+</li>
+<li>Honorary General Chair <br>
+<b>Dr. S. Poonkuntran</b><br>
+Executive Dean CSE, VIT Bhopal University <br><br>
+</li>
+<li>General Chair<br>
+<b>Dr Pushpinder Patheja</b><br>
+Dean SCOPE, VIT Bhopal University<br><br>
+<b>Dr Jitendra Agarwal</b><br>
+Vice-Chair IEEE MP Section<br><br>
+</li>
+
+<li>Co-General Chair<br>
+<b>Dr Sandeep Monga</b><br>
+Associate Professor, SCOPE, VIT Bhopal University<br>
+<b>Dr Preetam Suman</b><br>
+Associate Professor, SCOPE, VIT Bhopal University<br><br>
+</li>
+
+<li>Program Chair</li>
+<li>Publication Chair</li>
+</ul>
+</div>
+<div class="card">
+<h3>Technical Program Committee</h3>
+<ul>
+<li>IEEE Senior Members</li>
+<li>International Academicians</li>
+<li>Industry Experts</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- ================= SCOPE ================= -->
+<section id="scope">
+<h2>Technical Field of Interest & Scope</h2>
+<div class="card">
+<p align='justify'>
+The scope of EDGE 2026 encompasses foundational theories, applied research, and real-world applications. The conference covers the following technical domains:
+<ul>
+<li>Digital intelligence systems, architectures, and frameworks
+<li>Generative AI, multimodal models, and foundational models
+<li>Machine learning algorithms, optimization techniques, and computational methods
+<li>Edge AI and distributed intelligence computing
+<li>Human–AI interaction, inclusion, and collaboration systems
+<li>Responsible AI, governance, ethics, policy, and societal implications
+<li>Engineering pipelines including MLOps, deployment and automation frameworks
+<li>Applications across sectors including healthcare, industry, government, defense, education, fi-nance, cybersecurity, sustainability, agriculture, and creative technologies
+Research submissions may include theoretical models, empirical research, case studies, prototypes, simulation studies, industrial implementation frameworks, and early-stage conceptual manuscripts. The scope also includes tutorial, workshop, and demonstration proposals.
+</ul>
+</p>
+</div>
+</section>
+
+<!-- ================= CFP ================= -->
+<section id="cfp">
+<h2>Call for Papers</h2>
+<div class="card">
+<p>
+EDGE 2026 invites original, unpublished research papers.
+All submissions will undergo a rigorous peer-review process following IEEE standards.
+</p>
+<p>
+Accepted and presented papers will be submitted for inclusion in <strong>IEEE Xplore</strong>,
+subject to approval and compliance.
+</p>
+</div>
+</section>
+
+<!-- ================= DATES ================= -->
+<section id="dates">
+<h2>Important Dates</h2>
+<div class="card">
+<ul>
+<li>Paper Submission Deadline: <strong>15 May 2026</strong></li>
+<li>Notification of Acceptance: <strong>30 June 2026</strong></li>
+<li>Camera-Ready Submission: <strong>31 July 2026</strong></li>
+<li>Conference Dates: <strong>21–22 October 2026</strong></li>
+</ul>
+</div>
+</section>
+
+<!-- ================= REVIEWER ================= -->
+<section id="reviewer">
+<h2>Call for Reviewer</h2>
+<div class="card">
+<ul>
+<li>Reviewers from IEEE and academia are invited</li>
+<li>Maximum 4–5 papers per reviewer</li>
+<li>Certificates and acknowledgement provided</li>
+</ul>
+</div>
+</section>
+
+<!-- ================= SUBMISSION ================= -->
+<section id="submission">
+<h2>Paper Submission</h2>
+<div class="card">
+<p>
+Papers must follow IEEE conference format and be submitted via EasyChair / CMT.
+</p>
+<a class="btn" href="#">Submission Portal (Coming Soon)</a>
+</div>
+</section>
+
+<!-- ================= REGISTRATION ================= -->
+<section id="registration">
+<h2>Registration</h2>
+<div class="card">
+<p>
+At least one author must register for each accepted paper.
+Registration categories will include IEEE members, non-members,
+research scholars, and students.
+</p>
+</div>
+</section>
+
+<!-- ================= VENUE ================= -->
+<section id="venue">
+<h2>Venue</h2>
+<div class="card">
+<p>
+<strong>VIT Bhopal University</strong><br>
+Bhopal–Indore Highway, Madhya Pradesh, India<br>
+Conference Mode: <strong>Hybrid</strong>
+</p>
+</div>
+</section>
+
+<!-- ================= HELP ================= -->
+<section id="help">
+<h2>Help & Contact</h2>
+<div class="card">
+<p>
+<strong>Email:</strong> edge2026@vitbhopal.ac.in<br>
+<strong>Organiser:</strong> VIT Bhopal University
+</p>
+</div>
+</section>
+
+<!-- ================= SCRIPT ================= -->
+<script>
+function toggleMenu(){
+    document.getElementById("navMenu").classList.toggle("show");
+}
+
+function countdown(){
+    let eventDate=new Date("October 21, 2026 09:00:00").getTime();
+    let now=new Date().getTime();
+    let diff=eventDate-now;
+    if(diff>0){
+        let days=Math.floor(diff/(1000*60*60*24));
+        document.getElementById("countdown").innerHTML=
+        "⏳ "+days+" days remaining to EDGE 2026";
+    }
+}
+setInterval(countdown,1000);
+countdown();
+</script>
+
+</body>
+</html>
